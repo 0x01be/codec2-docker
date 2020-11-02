@@ -16,3 +16,15 @@ RUN cmake \
     ..
 RUN make install
 
+RUN git clone --depth 1 --branch ${REVISION} https://github.com/mborgerding/kissfft.git /kissfft
+
+WORKDIR /kissfft/build
+
+RUN cmake \
+    -DCMAKE_INSTALL_PREFIX=/opt/kissfft \
+    ..
+RUN make
+
+RUN cp /kissfft/kiss_fft.h /opt/codec2/include/
+RUN cp /kissfft/build/CMakeFiles/kissfft.dir/*.o /opt/codec2/lib/
+

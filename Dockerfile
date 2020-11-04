@@ -26,5 +26,6 @@ RUN cmake \
 RUN make
 
 RUN cp /kissfft/kiss_fft.h /opt/codec2/include/ &&\
-    cp /kissfft/build/CMakeFiles/kissfft.dir/kiss_fft.c.o /opt/codec2/lib64/kiss_fft.c.o
+    cp /kissfft/build/CMakeFiles/kissfft.dir/kiss_fft.c.o /opt/codec2/lib64/kiss_fft.c.o &&\
+    ln -s /opt/codec2/include/kiss_fft.h /opt/codec2/include/codec2/kiss_fft.h
 

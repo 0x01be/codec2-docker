@@ -3,7 +3,8 @@ FROM alpine
 RUN apk add --no-cache --virtual codesc2-build-dependencies \
     git \
     build-base \
-    cmake
+    cmake \
+    python3
 
 ENV REVISION master
 RUN git clone --depth 1 --branch ${REVISION}  https://github.com/drowe67/codec2 /codec2
